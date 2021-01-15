@@ -1,4 +1,424 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --darkblue: #262a41;
+  --pink: #f935a9;
+  --purple: #7946c1;
+  --main-green: #30bbb5;
+  --green: #75d6d1;
+  --light-green: #30bbb574;
+  --white: #ffffff;
+  --white-light: rgba(255, 255, 255, 0.7);
+  --light-grey: rgba(38, 42, 65, 0.52);
+  --bg-grey: rgba(60, 63, 84, 0.11);
+}
+
+/*Initializing and resetting"*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+}
+
 body {
+  font-size: 1.6rem;
+  font-family: Poppins;
+  line-height: 1.4;
+  background-color: var(--darkblue);
+  color: var(--white-light);
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-items: center;
+  margin: 2%;
+}
+
+/*search-panel*/
+.search-panel {
+  flex: 0 0 47%;
+}
+
+.greetings {
+  font: normal normal 200 4.9rem Poppins;
+}
+
+#username {
+  font: normal normal bold 3.7rem Poppins;
+  color: var(--white);
+}
+
+.searchContainer {
+  display: inline-flex;
+  position: relative;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  min-width: 90%;
+  background-color: #3c3f54;
+  margin: 2.6rem 0;
+}
+
+.searchIcon {
+  padding: 1.8rem;
+}
+
+.searchBox {
+  border: 0;
+  padding: 1.5rem;
+  min-width: 100%;
+  background-color: #3c3f54;
+  font: normal normal 200 1.8rem Poppins;
+}
+
+.category-list {
+  list-style-type: none;
+  display: flex;
+}
+
+.category-list li {
+  margin-right: 10%;
+  padding: 2rem 0;
+}
+
+.img-wrapper {
+  width: 122px;
+  height: 111px;
+  background-color: var(--pink);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2.5rem;
+  font-size: 4rem;
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  transition: width ease-in 0.7s, height ease-in 0.7s;
+}
+
+.img-wrapper:focus {
+  transform: scale(1.2, 1.2);
+  transition: transform ease-in 0.7s;
+}
+
+.all-users .img-wrapper {
+  background-color: var(--pink);
+}
+
+.male-users .img-wrapper {
+  background-color: var(--green);
+}
+
+.female-users .img-wrapper {
+  background-color: var(--purple);
+}
+
+.category-list li p {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/*result panel*/
+.result-panel {
+  flex: 0 0 47%;
+  background: #f7f7ff;
+  border-radius: 28px;
+  align-self: stretch;
+  color: var(--darkblue);
+  padding: 3.4rem;
+}
+
+.result-panel .title {
+  font: normal normal bold 3.7rem Poppins;
+}
+
+.user {
+  background-color: #fcfcff;
+  border-radius: 18px;
+  box-shadow: 10px 10px 40px #0000000d;
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.user-image {
+  flex: 0 0 15%;
+}
+
+.user-image img {
+  vertical-align: middle;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 8px solid var(--light-green);
+}
+
+.details {
+  flex: 0 0 70%;
+  padding-left: 2%;
+}
+
+.details .name {
+  color: var(--darkblue);
+  font: normal normal bold 1.8rem Poppins;
+}
+
+.details .address {
+  font: italic normal 1.4rem Poppins;
+  padding: 0.3rem 0;
+}
+
+.email-phone {
+  font: normal normal 1.4rem Poppins;
+  color: var(--light-grey);
+}
+
+.email-phone i {
+  padding-right: 4px;
+}
+.email-phone span {
+  padding-right: 4px;
+}
+
+.view_more {
+  background-color: var(--main-green);
+  color: var(--white);
+  padding: 8px 15px;
+  border-radius: 5px;
+  box-shadow: 2px 15px 30px #30bbb574;
+}
+
+/*Select country button*/
+.custom-select select {
+  padding: 8px 15px;
+  width: 120px;
+  border-radius: 25px;
+  background-color: var(--light-grey);
+  position: relative;
+  border: none;
+}
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  width: 120px;
+  border-radius: 34px;
+  margin: 0 10px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+  border-radius: 34px;
+}
+
+.select-selected {
+  background-color: var(--bg-grey);
+  border-radius: 34px;
+  color: var(--bg-grey);
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: var(--darkblue) transparent transparent transparent;
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent var(--darkblue) transparent;
+  top: 7px;
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  color: var(--darkblue);
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: var(--main-green);
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*Toogle switch*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--main-green);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--main-green);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*Find in list*/
+.findContainer {
+  display: inline-flex;
+  position: relative;
+  border-radius: 2.5rem;
+  overflow: hidden;
+  flex: 0 0 35%;
+  background-color: var(--bg-grey);
+  margin: 2.6rem 0;
+}
+
+.findIcon {
+  padding: 1.3rem;
+}
+
+.findBox {
+  border: 0;
+  padding: 1rem;
+  min-width: 100%;
+  background-color: var(--bg-grey);
+  font: normal normal 200 1.8rem Poppins;
+}
+
+.show-country {
+  font-size: 1.2rem;
+}
+
+.find-section {
+  display: flex;
+  align-items: center;
+}
+
+/*Download section*/
+.download-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.6rem;
+}
+
+.download-button {
+  text-decoration: none;
+  padding: 8px 15px;
+  border-radius: 15px;
+  background-color: var(--purple);
+  color: var(--white);
+}
+
+.download-button i {
+  padding: 0 5px;
+}
+
+.pagination a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.previous {
+  background-color: #e2e2ea;
+  color: var(--darkblue);
+}
+
+.next {
+  background-color: var(--darkblue);
+  color: var(--white);
+}
+
+@media screen and (max-width: 1130px) {
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    margin: 10% auto;
+  }
+  .search-panel {
+    flex: 0 0 80%;
+  }
+  .result-panel {
+    flex: 0 0 80%;
+  }
+}
+
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +430,4 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
+} */
