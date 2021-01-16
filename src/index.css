@@ -93,6 +93,7 @@ body {
 .img-wrapper {
   width: 122px;
   height: 111px;
+  border: none;
   background-color: var(--pink);
   display: inline-flex;
   justify-content: center;
@@ -100,14 +101,13 @@ body {
   border-radius: 2.5rem;
   font-size: 4rem;
   color: var(--white);
-  text-decoration: none;
   cursor: pointer;
-  transition: width ease-in 0.7s, height ease-in 0.7s;
 }
 
 .img-wrapper:focus {
   transform: scale(1.2, 1.2);
-  transition: transform ease-in 0.7s;
+  transition: transform ease-in-out 0.7s;
+  outline: none !important;
 }
 
 .all-users .img-wrapper {
