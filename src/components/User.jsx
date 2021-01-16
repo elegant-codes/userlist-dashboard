@@ -1,0 +1,26 @@
+import React from 'react'
+
+function User({image,fullname,address,phone,email}) {
+  return (
+    <div className="user" >
+      <div className="user-image">
+        <img src={image} alt=""/>
+      </div>
+
+      <div className="details">
+        <p className='name'>{fullname}</p>
+        <p className='address'>{address}</p>
+        <div className="email-phone">
+          <i className="far fa-envelope"></i><span id="user_email">{email}</span> <i className="fas fa-phone-alt"></i><span id="user_phone">{phone}</span>
+        </div>
+      </div>
+
+      <div className="arrow-wrapper">
+        <a href="" className="view_more"><i className="fas fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  )
+}
+
+export default User

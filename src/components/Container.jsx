@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Userlist from './Userlist'
 
 export class Container extends Component {
   constructor() {
@@ -129,29 +130,8 @@ export class Container extends Component {
             <span className="show-country">Show Country</span>
           </div>
         </div>
-        
-        {
-          this.state.users.map((user)=> (
-            <div className="user" key={user.login.uuid}>
-              <div className="user-image">
-                <img src={user.picture.large} alt=""/>
-              </div>
 
-              <div className="details">
-                <p className='name'>{user.name.first + ' ' + user.name.last}</p>
-                <p className='address'>{user.location.city + ',' + user.location.street + ',' + user.location.state}</p>
-                <div className="email-phone">
-                  <i className="far fa-envelope"></i><span id="user_email">{user.email}</span> <i className="fas fa-phone-alt"></i><span id="user_phone">{user.phone}</span>
-                </div>
-              </div>
-
-              <div className="arrow-wrapper">
-                <a href="" className="view_more"><i className="fas fa-arrow-right"></i></a>
-              </div>
-
-            </div>
-          ))
-        }
+        <Userlist users={this.state.users}/>
         
 
 
