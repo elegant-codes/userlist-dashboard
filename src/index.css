@@ -378,10 +378,14 @@ input:checked + .slider:before {
 
 .download-button {
   text-decoration: none;
-  padding: 8px 15px;
+  padding: 10px 15px;
   border-radius: 15px;
   background-color: var(--purple);
   color: var(--white);
+  outline: none;
+  border: none;
+  font: normal normal 600 1.4rem Poppins;
+  cursor: pointer;
 }
 
 .download-button i {

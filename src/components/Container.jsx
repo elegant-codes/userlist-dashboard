@@ -6,7 +6,9 @@ export class Container extends Component {
     super(props);
     this.state= {
       users: [],
-      filteredUsers:[]
+      filteredUsers:[],
+      pageTitle: 'All users',
+      searchField: ''
     };
   }
 
@@ -21,13 +23,27 @@ export class Container extends Component {
   render() {
     const filterUsers = (category)=> {
       if (category === 'male'){
-         this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'male')});
+         this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'male'), pageTitle:'Male Users'});
       } else if (category === 'female') {
-        this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'female') });
+        this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'female'), pageTitle:'Female Users'});
       } else {
-       this.setState({filteredUsers: this.state.users});
+       this.setState({filteredUsers: this.state.users, pageTitle:'All Users'});
       }
     }
+
+    const downloadCsv= () =>{
+      let csvContent = "data:text/csv;charset=utf-8," 
+      + this.state.filteredUsers.map(e => e.join(",")).join("\n");
+      var encodedUri = encodeURI(csvContent);
+      window.open(encodedUri);
+    }
+
+    // const {searchField, filteredUsers} = this.state;
+    // const SearchUsers = filteredUsers.filter(user => {
+    //   let fullname = user.name.first + ' ' + user.name.last;
+    //   fullname.name.toLowerCase().includes(searchField.toLowerCase())
+    // });
+    // this.setState({filteredUsers: SearchUsers});
 
     return (
       <div className="container">
@@ -69,14 +85,24 @@ export class Container extends Component {
 
       
       <div className="result-panel">
-        <p className="title">All Users</p>
+        <p className="title">{this.state.pageTitle}</p>
         <p>Filter by</p>
 
         <div className="find-section">
           
           <div className="findContainer">
             <i className="fa fa-search findIcon"></i>
-            <input className="findBox" type="search" name="search" placeholder="Find in list"/>
+            <input 
+            className="findBox" 
+            type="search" 
+            name="search"
+            placeholder="Find in list"
+            onChange= {e => {
+              this.setState({searchField: e.target.value})
+              }
+            }
+
+             />
           </div>
         
           <div className="custom-select" >
@@ -101,7 +127,7 @@ export class Container extends Component {
 
 
         <div className="download-section">
-          <a href="" className="download-button"><i className="fas fa-cloud-download-alt"></i>Download results</a>
+          <button onClick={()=> downloadCsv()} className="download-button"><i className="fas fa-cloud-download-alt"></i>Download results</button>
 
           <div className="pagination">
             <a href="" className="previous"><i className="fas fa-angle-left"></i></a>
