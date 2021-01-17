@@ -1,11 +1,12 @@
-import {React} from 'react'
+import React from 'react'
 import User from './User'
+import Spinner from './Spinner'
 
-function Userlist({users}) {
-
-  return (
-    
-    users.map((user)=> (
+function Userlist({users, loading}) {
+    if(loading){
+      return <Spinner />
+    }else {
+     return ( users.map((user)=> (
       <User key={user.id.value + Math.random(1)} 
       image={user.picture.large} 
       fullname={user.name.first + ' ' + user.name.last} 
@@ -14,9 +15,8 @@ function Userlist({users}) {
       phone={user.phone}
        />
       
-    ))  
-   
-  )
+    ))) 
+    }
 }
 
 export default Userlist

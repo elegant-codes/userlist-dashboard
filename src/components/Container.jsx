@@ -5,6 +5,7 @@ export class Container extends Component {
   constructor(props) {
     super(props);
     this.state= {
+      loading: true,
       users: [],
       filteredUsers:[],
       pageTitle: 'All users',
@@ -14,9 +15,10 @@ export class Container extends Component {
 
   
   componentDidMount() {
+    this.setState({loading:true});
     fetch('https://randomuser.me/api/?results=4&seed=fea8be3e64777240')
     .then( response => response.json())
-    .then(userslist => this.setState({users: userslist.results, filteredUsers: userslist.results}));
+    .then(userslist => this.setState({users: userslist.results, filteredUsers: userslist.results, loading: false}));
   }
 
 
@@ -122,7 +124,7 @@ export class Container extends Component {
           </div>
         </div>
 
-        <Userlist users={this.state.filteredUsers}/>
+        <Userlist users={this.state.filteredUsers} loading={this.state.loading} />
         
 
 
