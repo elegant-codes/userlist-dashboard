@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Userlist from './Userlist'
+import DownloadButton from './DownloadButton'
 
 export class Container extends Component {
   constructor(props) {
@@ -33,12 +34,12 @@ export class Container extends Component {
       }
     }
 
-    const downloadCsv= () =>{
-      let csvContent = "data:text/csv;charset=utf-8," 
-      + this.state.filteredUsers.map(e => e.join(",")).join("\n");
-      var encodedUri = encodeURI(csvContent);
-      window.open(encodedUri);
-    }
+    // const downloadCsv= () =>{
+    //   let csvContent = "data:text/csv;charset=utf-8," 
+    //   + this.state.filteredUsers.map(e => e.join(",")).join("\n");
+    //   var encodedUri = encodeURI(csvContent);
+    //   window.open(encodedUri);
+    // }
 
     // const {searchField, filteredUsers} = this.state;
     // const SearchUsers = filteredUsers.filter(user => {
@@ -129,7 +130,7 @@ export class Container extends Component {
 
 
         <div className="download-section">
-          <button onClick={()=> downloadCsv()} className="download-button"><i className="fas fa-cloud-download-alt"></i>Download results</button>
+            <DownloadButton results={this.state.filteredUsers} />
 
           <div className="pagination">
             <a href="" className="previous"><i className="fas fa-angle-left"></i></a>
