@@ -81,7 +81,7 @@ function DownloadButton({results}) {
         });
     });
 
-    var fileTitle = 'orders'; // or 'my-unique-title'
+    var fileTitle = 'userslist'; // or 'my-unique-title'
 
     exportCSVFile(headers, itemsFormatted, fileTitle); // call the exportCSVFile() function to process the JSON and trigger the download
   }

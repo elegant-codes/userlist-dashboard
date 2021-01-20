@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import Userlist from './Userlist'
-import DownloadButton from './DownloadButton'
+import SearchPanel from './SearchPanel'
+import ResultPanel from './ResultPanel'
 
 export class Container extends Component {
   constructor(props) {
@@ -22,17 +22,17 @@ export class Container extends Component {
     .then(userslist => this.setState({users: userslist.results, filteredUsers: userslist.results, loading: false}));
   }
 
+   filterUsers = (category)=> {
+    if (category === 'male'){
+       this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'male'), pageTitle:'Male Users'});
+    } else if (category === 'female') {
+      this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'female'), pageTitle:'Female Users'});
+    } else {
+     this.setState({filteredUsers: this.state.users, pageTitle:'All Users'});
+    }
+  }
 
   render() {
-    const filterUsers = (category)=> {
-      if (category === 'male'){
-         this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'male'), pageTitle:'Male Users'});
-      } else if (category === 'female') {
-        this.setState({filteredUsers: this.state.users.filter((user) => user.gender === 'female'), pageTitle:'Female Users'});
-      } else {
-       this.setState({filteredUsers: this.state.users, pageTitle:'All Users'});
-      }
-    }
 
     // const downloadCsv= () =>{
     //   let csvContent = "data:text/csv;charset=utf-8," 
@@ -50,95 +50,10 @@ export class Container extends Component {
 
     return (
       <div className="container">
-          <div className="search-panel">
-            <p className="greetings">Hello, <span id='username'>Emerald</span></p>
-            <p>Welcome to your dashboard, kindly sort through the base</p>
-
-            <div className="searchContainer">
-              <i className="fa fa-search searchIcon"></i>
-              <input className="searchBox" type="search" name="search" placeholder="Find a user"/>
-            </div>
-
-            <div className="showUsers">
-              <p>Show users</p>
-              <ul className="category-list">
-                <li className="all-users">
-                  <button className="img-wrapper" onClick={()=> filterUsers('all')} >
-                    <i className="fas fa-users"></i>
-                  </button>
-                  <p>All Users</p>
-                </li>
-
-                <li className="male-users" onClick={()=> filterUsers('male')}>
-                  <button className="img-wrapper" >
-                    <i className="fas fa-male"></i>
-                  </button>
-                  <p>Male Users</p>
-                </li>
-
-                <li className="female-users" onClick={()=> filterUsers('female')} >
-                  <button className="img-wrapper">
-                    <i className="fas fa-female"></i>
-                  </button>
-                  <p>Female Users</p>
-                </li>
-              </ul>
-            </div>
-        </div>
-
+          
+      <SearchPanel filterUsers= {this.filterUsers} />
+      <ResultPanel pageTitle={this.state.pageTitle} filteredUsers={this.state.filteredUsers} loading={this.state.loading} />
       
-      <div className="result-panel">
-        <p className="title">{this.state.pageTitle}</p>
-        <p>Filter by</p>
-
-        <div className="find-section">
-          
-          <div className="findContainer">
-            <i className="fa fa-search findIcon"></i>
-            <input 
-            className="findBox" 
-            type="search" 
-            name="search"
-            placeholder="Find in list"
-            onChange= {e => {
-              this.setState({searchField: e.target.value})
-              }
-            }
-
-             />
-          </div>
-        
-          <div className="custom-select" >
-            <select>
-              <option value="0"> Country</option>
-              <option value="1">UK</option>
-              <option value="2">NG</option>
-            </select>
-          </div>
-          
-          <div>
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider round"></span>
-            </label>
-            <span className="show-country">Show Country</span>
-          </div>
-        </div>
-
-        <Userlist users={this.state.filteredUsers} loading={this.state.loading} />
-        
-
-
-        <div className="download-section">
-            <DownloadButton results={this.state.filteredUsers} />
-
-          <div className="pagination">
-            <a href="" className="previous"><i className="fas fa-angle-left"></i></a>
-            <a href=""className='next'><i className="fas fa-angle-right"></i></a>
-          </div>
-        </div>
-
-      </div>
 
       </div>
     )
