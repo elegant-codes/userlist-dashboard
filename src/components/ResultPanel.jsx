@@ -41,7 +41,6 @@ function ResultPanel({pageTitle, filteredUsers, loading}) {
         <Userlist users={filteredUsers} loading={loading} />
         
 
-
         <div className="download-section">
             <DownloadButton results={filteredUsers} />
 
