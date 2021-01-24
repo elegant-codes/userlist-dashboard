@@ -1,7 +1,10 @@
 import React from 'react'
 
 
-function User({image,fullname,address,phone,email}) {
+function User({image,fullname,address,phone,email, setIdClick}) {
+  const handleClick = (userid) =>{
+    setIdClick(userid)
+  }
   return (
     <div className="user" >
       <div className="user-image">
@@ -17,7 +20,7 @@ function User({image,fullname,address,phone,email}) {
       </div>
 
       <div className="arrow-wrapper">
-        <button className="view_more"><i className="fas fa-arrow-right"></i></button>
+        <button className="view_more" onClick={()=> handleClick({fullname})} ><i className="fas fa-arrow-right"></i></button>
       </div>
 
     </div>

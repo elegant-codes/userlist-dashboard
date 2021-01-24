@@ -2,7 +2,7 @@ import React from 'react'
 import User from './User'
 import Spinner from './Spinner'
 
-function Userlist({users, loading, id}) {
+function Userlist({users, loading, setIdClick}) {
     if(loading){
       return <Spinner />
     }else {
@@ -13,6 +13,7 @@ function Userlist({users, loading, id}) {
       address={user.location.city + ', ' + user.location.street.number + ' ' + user.location.street.name  + ', ' + user.location.state}
       email={user.email}
       phone={user.phone}
+      setIdClick={setIdClick}
        />
       
     ))) 

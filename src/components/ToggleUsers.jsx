@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import User from './User'
+import Userpage from './Userpage'
 import Userlist from './Userlist'
 
 class ToggleUsers extends Component {
@@ -7,14 +7,22 @@ class ToggleUsers extends Component {
     id: null,
     setId: false
   }
+  
+  setIdClick = (userId) => {
+    this.setState({
+      id: userId,
+      setId: true
+    })
+  }
+
   render() {
    if(this.state.setId){
      return(
-        <User id={this.props.id} />
+        <Userpage id={this.props.id} />
      )
    }else {
       return(
-        <Userlist users={this.props.users} loading={this.props.loading} />
+        <Userlist users={this.props.users} loading={this.props.loading} setIdClick={this.setIdClick} />
       )
    }
   }
