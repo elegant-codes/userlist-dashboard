@@ -2,7 +2,7 @@ import React from 'react'
 import User from './User'
 import Spinner from './Spinner'
 
-function Userlist({users, loading}) {
+function Userlist({users, loading, id}) {
     if(loading){
       return <Spinner />
     }else {

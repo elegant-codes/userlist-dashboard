@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 function User({image,fullname,address,phone,email}) {
   return (
     <div className="user" >
@@ -16,7 +17,7 @@ function User({image,fullname,address,phone,email}) {
       </div>
 
       <div className="arrow-wrapper">
-        <a href="" className="view_more"><i className="fas fa-arrow-right"></i></a>
+        <button className="view_more"><i className="fas fa-arrow-right"></i></button>
       </div>
 
     </div>

@@ -196,6 +196,9 @@ body {
   padding: 8px 15px;
   border-radius: 5px;
   box-shadow: 2px 15px 30px #30bbb574;
+  outline: none;
+  border: none;
+  cursor: pointer;
 }
 
 /*Select country button*/

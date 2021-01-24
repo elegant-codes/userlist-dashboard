@@ -1,11 +1,23 @@
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import {Container} from './components/Container';
 
 function App() {
   return (
-    <div className="App">
-        <Container />
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/" >
+            <Container />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+   
   );
 }
 

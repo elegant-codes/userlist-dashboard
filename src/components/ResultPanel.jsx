@@ -1,8 +1,9 @@
-import React from 'react'
-import Userlist from './Userlist'
+import React from 'react';
 import DownloadButton from './DownloadButton'
+import ToggleUsers from './ToggleUsers'
 
 function ResultPanel({pageTitle, filteredUsers, loading}) {
+ 
   return (
     <div className="result-panel">
         <p className="title">{pageTitle}</p>
@@ -37,10 +38,9 @@ function ResultPanel({pageTitle, filteredUsers, loading}) {
             <span className="show-country">Show Country</span>
           </div>
         </div>
-
-        <Userlist users={filteredUsers} loading={loading} />
-        
-
+       
+            <ToggleUsers users={filteredUsers} loading={loading} />
+  
         <div className="download-section">
             <DownloadButton results={filteredUsers} />
 
