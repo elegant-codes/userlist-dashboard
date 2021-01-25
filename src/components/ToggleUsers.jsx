@@ -18,7 +18,7 @@ class ToggleUsers extends Component {
   render() {
    if(this.state.setId){
      return(
-        <Userpage id={this.props.id} />
+        <Userpage users={this.props.users} setUserId={this.state.id} />
      )
    }else {
       return(

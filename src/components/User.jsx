@@ -1,9 +1,9 @@
 import React from 'react'
 
 
-function User({image,fullname,address,phone,email, setIdClick}) {
-  const handleClick = (userid) =>{
-    setIdClick(userid)
+function User({image,fullname,address,phone,email, setIdClick, id}) {
+  const handleClick = () =>{
+    setIdClick(id)
   }
   return (
     <div className="user" >
@@ -20,7 +20,7 @@ function User({image,fullname,address,phone,email, setIdClick}) {
       </div>
 
       <div className="arrow-wrapper">
-        <button className="view_more" onClick={()=> handleClick({fullname})} ><i className="fas fa-arrow-right"></i></button>
+        <button className="view_more" onClick={()=> handleClick()} ><i className="fas fa-arrow-right"></i></button>
       </div>
 
     </div>
