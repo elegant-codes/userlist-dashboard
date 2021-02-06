@@ -15,10 +15,17 @@ class ToggleUsers extends Component {
     })
   }
 
+  setIdClickNull = () =>{
+    this.setState({
+      id: null,
+      setId: false
+    })
+  }
+
   render() {
    if(this.state.setId){
      return(
-        <Userpage users={this.props.users} setUserId={this.state.id} />
+        <Userpage users={this.props.users} setUserId={this.state.id} setIdClickNull={this.setIdClickNull} />
      )
    }else {
       return(

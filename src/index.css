@@ -420,6 +420,7 @@ input:checked + .slider:before {
   grid-template-columns: 1fr 3fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 20px;
+  color: var(--light-grey);
 }
 
 .image-wrap img {
@@ -427,6 +428,53 @@ input:checked + .slider:before {
   height: 180px;
   border-radius: 50%;
   border: 8px solid var(--light-green);
+}
+
+.user-details .name {
+  font: normal normal bold 2.8rem Poppins;
+  margin-right: 5px;
+  padding: 10px 0;
+  color: var(--darkblue);
+}
+.user-details .name span {
+  font-weight: 200;
+  color: var(--light-grey);
+}
+.user-details .address {
+  font: normal normal 300 Poppins;
+}
+.user-details .email {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: var(--bg-grey);
+  border-radius: 100px;
+  margin: 10px 0;
+}
+.user-details .joined {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: rgba(249, 53, 169, 0.5);
+  text-transform: uppercase;
+  border-radius: 100px;
+  margin: 10px 0;
+}
+.user-details .phone p {
+  padding: 8px 12px;
+  margin-bottom: 2px;
+}
+.result {
+  color: var(--light-grey);
+  margin: 10px 0;
+  vertical-align: center;
+}
+.result i {
+  color: var(--light-green);
+  padding-right: 5px;
+  font-size: 2.3rem;
+}
+.result:hover {
+  cursor: pointer;
+  color: var(--main-green);
 }
 
 @media screen and (max-width: 1020px) {
