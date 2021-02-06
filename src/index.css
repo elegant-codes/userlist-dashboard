@@ -438,6 +438,7 @@ input:checked + .slider:before {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     row-gap: 24px;
+    justify-content: center;
     margin: auto;
   }
 
