@@ -18,7 +18,7 @@ function Userpage({users, setUserId, setIdClickNull}) {
       <div className="user-details">
         <p className="name">{`${user.name.title}. ${user.name.first} ${user.name.last}`} <span>{`${user.registered.age}`}</span></p>
         <p className="address"> {`${user.location.city} ${user.location.street.number} ${user.location.street.name } ${user.location.state}`} </p>
-        <p className="email"> <i className="far fa-envelope"></i><span id="user_email">{user.email}</span></p>
+        <p className="email"> <i className="far fa-envelope"></i><span id="user_email"> {user.email}</span></p>
         <p className="joined">Joined: {`${user.registered.date.substr(0, 10)}`}</p>
         <div className="phone">
          <p><i className="fas fa-phone-alt"></i> {user.phone}</p> 
