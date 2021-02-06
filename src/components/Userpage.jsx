@@ -21,7 +21,7 @@ function Userpage({users, setUserId, setIdClickNull}) {
         <p className="email"> <i className="far fa-envelope"></i><span id="user_email">{user.email}</span></p>
         <p className="joined">Joined: {`${user.registered.date.substr(0, 10)}`}</p>
         <div className="phone">
-         <p><i className="fas fa-phone-alt"> </i>{user.phone}</p> 
+         <p><i className="fas fa-phone-alt"></i> {user.phone}</p> 
           <p><i class="fas fa-mobile-alt"> </i> {user.cell}</p>
         </div>
       </div>
