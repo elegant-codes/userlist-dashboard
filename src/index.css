@@ -439,9 +439,11 @@ input:checked + .slider:before {
   font-weight: 200;
   color: var(--light-grey);
 }
+
 .user-details .address {
   font: normal normal 300 Poppins;
 }
+
 .user-details .email {
   display: inline-block;
   padding: 8px 12px;
@@ -449,6 +451,7 @@ input:checked + .slider:before {
   border-radius: 100px;
   margin: 10px 0;
 }
+
 .user-details .joined {
   display: inline-block;
   padding: 8px 12px;
